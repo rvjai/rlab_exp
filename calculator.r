@@ -1,26 +1,22 @@
-
-n = as.integer(readline(prompt="enter number"))
-recur_factorial <- function(n) {
-  if(n <= 1) {
-    return(1)
-  } else {
-    return(n * recur_factorial(n-1))
+{
+  add <- function(x, y) { return(x + y)
   }
-}
-print(paste('the factorial of ',n,'is',factorial(n)))
-
-
-#without using recursion
-num = as.integer(readline(prompt="Enter a number: "))
-factorial = 1
-# check is the number is negative, positive or zero
-if(num < 0) {
-  print("Sorry, factorial does not exist for negative numbers")
-} else if(num == 0) {
-  print("The factorial of 0 is 1")
-} else {
-  for(i in 1:num) {
-    factorial = factorial * i
+  subtract <- function(x, y) { return(x - y)
   }
-  print(paste("The factorial of", num ,"is",factorial))
-}
+  multiply <- function(x, y) {
+    return(x * y)
+  }
+  divide <- function(x, y) { return(x / y)
+  }
+  print("Select operation.") 
+  print("1.Add") 
+  print("2.Subtract")
+  print("3.Multiply") 
+  print("4.Divide")
+  choice = as.integer(readline(prompt="Enter choice[1/2/3/4]: "))
+  num1 = as.integer(readline(prompt="Enter first number: "))
+  num2 = as.integer(readline(prompt="Enter second number: "))
+  operator <- switch(choice,"+","-","*","/")
+  result <- switch(choice, add(num1, num2), subtract(num1,num2),multiply(num1, num2), divide(num1, num2))
+  print(paste(num1, operator, num2, "=", result)) 
+} 
